@@ -7,7 +7,15 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.post('/sms', (req, res) => {
+const router = express.Router();
+
+router.get('/', (req, res) => {
+  res.json({
+    hello: 'hi',
+  });
+});
+
+router.get('/sms', (req, res) => {
   const twiml = new MessagingResponse();
   const phoneNumber = req.body.From;
   if (req.body.Body == '1') {
@@ -21,14 +29,6 @@ app.post('/sms', (req, res) => {
   }
 
   res.type('text/xml').send(twiml.toString());
-});
-
-const router = express.Router();
-
-router.get('/', (req, res) => {
-  res.json({
-    hello: 'hi',
-  });
 });
 
 app.use('/.netlify/functions/api', router);
