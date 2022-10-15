@@ -4,17 +4,13 @@ const { MessagingResponse } = require('twilio').twiml;
 
 const app = express();
 
-const users = {
-  ['+16473891211']: 'Orry',
-};
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
   const phoneNumber = req.body.From;
-  const player = users[phoneNumber] || '';
   if (req.body.Body == '1') {
-    twiml.message(`See ya tonight ${player}! 🏀`);
+    twiml.message(`See ya tonight! 🏀`);
   } else if (req.body.Body == '2') {
     twiml.message('Lame 👎');
   } else {
