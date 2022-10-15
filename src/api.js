@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/sms', (req, res) => {
+router.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
   const phoneNumber = req.body.From;
   if (req.body.Body == '1') {
