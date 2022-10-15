@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { MessagingResponse } = require('twilio').twiml;
+const serverless = require('serverless-http');
 
 const app = express();
 
@@ -22,6 +23,14 @@ app.post('/sms', (req, res) => {
   res.type('text/xml').send(twiml.toString());
 });
 
-app.listen(3000, () => {
-  console.log('Express server listening on port 3000');
+const router = express.Router();
+
+router.get('/', (req, res) => {
+  res.json({
+    hello: 'hi',
+  });
 });
+
+app.use('/.netlify/functions/api', router);
+
+module.exports.handler = serverless(app);
