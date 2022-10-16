@@ -6,11 +6,15 @@ const authToken = process.env.authToken; // Your Auth Token from www.twilio.com/
 
 const client = new twilio(accountSid, authToken);
 
-client.messages
-  .create({
-    body: 'Are you in for ball tonight? Type "1" for yes, or "2" for no.',
-    to: process.env.toPhone,
-    from: process.env.fromPhone, // From a valid Twilio number
-  })
-  .then(message => console.log(message))
-  .catch(err => console.log(err));
+async function run() {
+  await client.messages
+    .create({
+      body: 'Are you in for ball tonight? Type "1" for yes, or "2" for no.',
+      to: process.env.toPhone,
+      from: process.env.fromPhone, // From a valid Twilio number
+    })
+    .then(message => console.log(message))
+    .catch(err => console.log(err));
+}
+
+module.exports = run;
