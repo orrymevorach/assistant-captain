@@ -9,23 +9,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.json({
-    hello: 'hi',
-  });
-});
-
 router.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
-  const phoneNumber = req.body.From;
   if (req.body.Body == '1') {
     twiml.message(`See ya tonight! 🏀`);
   } else if (req.body.Body == '2') {
     twiml.message('Lame 👎');
   } else {
-    twiml.message(
-      'No Body param match, Twilio sends this in the request to your server.'
-    );
+    twiml.message('Please respond with either "1" or "2"');
   }
 
   res.type('text/xml').send(twiml.toString());

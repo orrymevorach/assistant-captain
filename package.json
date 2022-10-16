@@ -8,7 +8,7 @@
     "twilio": "^3.82.2"
   },
   "scripts": {
-    "start": "./node_modules/.bin/netlify-lambda serve src",
-    "build": "./node_modules/.bin/netlify-lambda build src"
+    "start": "netlify-lambda serve src",
+    "build": "netlify-lambda build src"
   }
 }
