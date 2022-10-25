@@ -24,4 +24,4 @@ async function handler(event, context) {
     .catch(err => console.log(err));
 }
 
-module.exports.handler = schedule('* * * * *', handler);
+module.exports.handler = schedule('0 12 * * *', handler);
