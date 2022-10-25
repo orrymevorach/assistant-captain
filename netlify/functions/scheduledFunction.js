@@ -15,12 +15,11 @@ async function handler(event, context) {
       from: process.env.fromPhone, // From a valid Twilio number
     })
     .then(message => {
-      console.log('Success!', {
+      return console.log('Success!', {
         message: message.body,
         from: message.from,
         to: message.to,
       });
-      return;
     })
     .catch(err => console.log(err));
 }

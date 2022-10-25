@@ -22,6 +22,6 @@ router.post('/sms', (req, res) => {
   res.type('text/xml').send(twiml.toString());
 });
 
-app.use('/.netlify/functions/api', router);
+app.use('/.netlify/functions/router', router);
 
 module.exports.handler = serverless(app);
