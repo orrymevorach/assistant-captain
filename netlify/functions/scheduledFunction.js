@@ -1,8 +1,8 @@
 const { schedule } = require('@netlify/functions');
-const run = require('./send');
+const sendMessage = require('../../scripts/sendMessage');
 
 const handler = async function (event, context) {
-  await run();
+  await sendMessage();
   return {
     statusCode: 200,
   };
