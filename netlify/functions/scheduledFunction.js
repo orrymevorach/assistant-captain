@@ -7,8 +7,8 @@ const authToken = process.env.authToken; // Your Auth Token from www.twilio.com/
 
 const client = new twilio(accountSid, authToken);
 
-const handler = async function (event, context) {
-  client.messages
+async function handler(event, context) {
+  await client.messages
     .create({
       body: 'Are you in for ball tonight? Type "1" for yes, or "2" for no.',
       to: process.env.toPhone,
@@ -22,6 +22,6 @@ const handler = async function (event, context) {
       });
     })
     .catch(err => console.log(err));
-};
+}
 
 module.exports.handler = schedule('* * * * *', handler);
