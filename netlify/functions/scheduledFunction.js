@@ -14,8 +14,14 @@ const handler = async function (event, context) {
       to: process.env.toPhone,
       from: process.env.fromPhone, // From a valid Twilio number
     })
-    .then(message => console.log(message))
+    .then(message => {
+      console.log('Success!', {
+        message: message.body,
+        from: message.from,
+        to: message.to,
+      });
+    })
     .catch(err => console.log(err));
 };
 
-module.exports.handler = schedule('0 12 * * *', handler);
+module.exports.handler = schedule('* * * * *', handler);
