@@ -28,6 +28,4 @@ async function handler(event, context) {
     });
 }
 
-module.exports.handler = async function () {
-  return await schedule('* * * * *', handler);
-};
+module.exports.handler = schedule('* * * * *', handler);
