@@ -5,4 +5,4 @@ const handler = async function (event, context) {
   await sendMessage();
 };
 
-module.exports.handler = schedule('* * * * *', handler);
+module.exports.handler = schedule('0 12 * * *', handler);
