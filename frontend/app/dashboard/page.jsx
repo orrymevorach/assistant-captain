@@ -1,38 +1,12 @@
-"use client";
-import Logout from '../../components/Logout';
+'use client';
+import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
-const Dashboard = () => {
-    const [ user, setUser ] = useState(null);
-    const auth = getAuth();
-    
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                const userData = {
-                    displayName: user.displayName,
-                    email: user.email,
-                    uid: user.uid,
-                }
-                setUser(userData)
-            }
-        })
-    }, [])
-    
-    return (
-        <div className='parent'>
-            {
-                user && 
-                <div>
-                    <h1>{ `Welcome to the dashboard ${user.displayName}` }</h1>
-                    <p>{ `Email: ${user.email}` }</p>
-                    <p>{ `UID: ${user.uid}` }</p>
-                    <Logout />
-                </div>
-            }
-        </div>
-    )
+export default function Dashboard() {
+  const [uid, setUid] = useState('');
+  useEffect(() => {
+    const uidCookie = Cookies.get('uid');
+    setUid(uidCookie);
+  }, []);
+  return <h1>{uid}</h1>;
 }
-
-export default Dashboard;
