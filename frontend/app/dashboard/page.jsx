@@ -8,23 +8,22 @@ import Cookies from 'js-cookie';
 
 const Dashboard = () => {
     const router = useRouter();
-   const [ userData, setUserData ] = useState();
+    const [ userData, setUserData ] = useState();
 
-   useEffect(() => {
-        onAuthStateChanged(auth, user => {
-            if (user) {
-                const uidVerify = Cookies.get('uid');
-                if (uidVerify !== user.uid) {
-                    Cookies.set('uid', 'false');
-                    router.push('/')
-                } else {
-                    setUserData(user);
-                }
-            } 
-        })
-   }, [])
+    useEffect(() => {
+            onAuthStateChanged(auth, user => {
+                if (user) {
+                    const uidVerify = Cookies.get('uid');
+                    if (uidVerify !== user.uid) {
+                        Cookies.set('uid', 'false');
+                        router.push('/')
+                    } else {
+                        setUserData(user);
+                    }
+                } 
+            })
+    }, [])
     
-
     return (
         <div className='parent'>
             {
