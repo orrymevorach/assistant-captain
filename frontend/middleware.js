@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import Cookies from "js-cookie";
 
 export const middleware = (req) => {
     let verify = req.cookies.get("isLoggedIn");
@@ -7,8 +6,8 @@ export const middleware = (req) => {
     
     if (verify === undefined) {
         let res = NextResponse.next();
-        res.cookies.set('temp-cookie', 'false', { maxAge: 60 });
-        verify = res.cookies.get('temp-cookie');
+        res.cookies.set('firstTimeUsingAppCookie', 'false');
+        verify = res.cookies.get('firstTimeUsingAppCookie');
     }
 
     if(verify.value === 'false' && url.includes('/dashboard')){
