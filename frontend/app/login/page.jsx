@@ -20,7 +20,7 @@ const Login = () => {
     }
     
     return (
-        <div className={loginStyles.parent}>
+        <div className={loginStyles.container}>
             <button onClick={() => signIn()}>
                  { `G -> Sign in with Google` }
             </button>
