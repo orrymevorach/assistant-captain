@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
-import { GoogleAuthProvider, signInWithPopup, signInWithRedirect } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import loginStyles from "./Login.module.css";
 
