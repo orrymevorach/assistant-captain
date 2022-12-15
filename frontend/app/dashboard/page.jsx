@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import Logout from '../../components/LogoutButton';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';

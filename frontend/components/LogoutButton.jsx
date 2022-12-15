@@ -1,7 +1,7 @@
-import { auth } from "../firebase/config";
-import { signOut } from "firebase/auth";
-import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
+import { auth } from '../firebase/config';
+import { signOut } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 const Logout = () => {
     const router = useRouter();
