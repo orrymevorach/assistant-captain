@@ -4,7 +4,12 @@ import { useRouter } from 'next/navigation';
 import { initFirebaseAuth } from '../firebase/config';
 import Cookies from 'js-cookie';
 import styles from '../styles/Home.module.css';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+} from 'firebase/auth';
 
 const App = () => {
   initFirebaseAuth();
@@ -12,6 +17,15 @@ const App = () => {
   const provider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
   const auth = getAuth();
+
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      const uid = user.uid;
+      router.push('/dashboard');
+    } else {
+      console.log('user is siged out');
+    }
+  });
 
   useEffect(() => {
     if (user) {
@@ -31,6 +45,7 @@ const App = () => {
         console.log('error', error);
       });
   };
+
   return (
     <div className={styles.container}>
       <button onClick={handleLogin}>Log in</button>
