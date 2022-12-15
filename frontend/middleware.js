@@ -1,19 +1,13 @@
 import { NextResponse } from "next/server";
-import { auth } from "./firebase/config";
-import { getAuth, getRedirectResult } from "firebase/auth";
-
-
 
 export const config = {
     matcher: [
       '/',
       '/dashboard',
-    //   '/login'
     ],
   }
 
 export const middleware = (req) => {
-    
     let verify = req.cookies.get("uid");
     let url = req.url
     
