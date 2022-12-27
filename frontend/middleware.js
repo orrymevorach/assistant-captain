@@ -4,6 +4,7 @@ export const config = {
     matcher: [
       '/',
       '/dashboard',
+      '/login',
     ],
   }
 
@@ -15,11 +16,11 @@ export const middleware = (req) => {
         return;
     }
 
-    if((verify === undefined || verify.value === 'false') && url.includes('/dashboard')){
+    if(verify === undefined && (url.includes('/dashboard') || url.includes('/login'))){
         return NextResponse.redirect('http://localhost:3000/');
     }
 
-    if (verify.value !== 'false' && url === 'http://localhost:3000/') {
+    if (verify.value && (url === 'http://localhost:3000/' || url.includes('/login'))) {
       return NextResponse.redirect('http://localhost:3000/dashboard');
     }
 }
