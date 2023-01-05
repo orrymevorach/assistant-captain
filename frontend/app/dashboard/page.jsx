@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { auth } from '../../firebase/config';
 import Cookies from 'js-cookie';
 import { getUser, createUser } from '../../airtable/utils';
+import dashStyle from './Dashboard.module.css';
 
 const Dashboard = () => {
     const router = useRouter();
@@ -32,7 +33,11 @@ const Dashboard = () => {
         return () => unsubscribe();
     }, []);
 
-    return <div className='container'>DASHBOARD</div>;
+    return (
+        <div className={dashStyle.container}>
+            <h1>Assistant Captain dashboard</h1>
+        </div>
+    );
 };
 
 export default Dashboard;
