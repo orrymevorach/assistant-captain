@@ -1,4 +1,6 @@
 .container {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -6,9 +8,27 @@
     align-items: center;
 }
 
-.container button { 
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 1rem;
+    gap: 0.8rem;
+    border: 1px solid rgb(74, 74, 74);
+    border-radius: 5px;
+}
+
+.container h4 {
+    margin: 0;
+}
+
+.container button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
     border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
- }
+    background-color: white;
+}
