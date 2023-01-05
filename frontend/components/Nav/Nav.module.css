@@ -29,7 +29,7 @@
 }
 
 .highlighted {
-    background: linear-gradient(to left,  rgb(210, 210, 210) 50%, rgb(255, 255, 255) 50%) right;
+    background: linear-gradient(to left, rgb(210, 210, 210) 50%, rgb(255, 255, 255) 50%) right;
     background-size: 200%;
     transition: 0.3s ease-out;
 }
