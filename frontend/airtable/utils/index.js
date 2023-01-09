@@ -12,7 +12,7 @@ export const getUser = async (uid) => {
     }
 };
 
-export const createUser = async () => {
+export const createUser = async (uid, email) => {
     try {
         await client.mutate({
             mutation: CREATE_USER,
