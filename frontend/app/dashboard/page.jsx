@@ -25,7 +25,7 @@ const Dashboard = () => {
                 const hasAirtableRecord = doesUserExist.users.length !== 0;
 
                 if (!hasAirtableRecord) {
-                    await createUser(email);
+                    await createUser(uid, email);
                 }
             }
         });
