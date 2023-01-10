@@ -1,8 +1,15 @@
 const CreateTeam = () => {
+    const handleChange = (e) => {
+        const input = e.target.value;
+        console.log(input);
+    };
+
     return (
         <form>
-            <p>Enter your team name</p>
-            <input />
+            <label>
+                Team name:
+                <input type='text' name='name' onChange={(e) => handleChange(e)} />
+            </label>
         </form>
     );
 };
