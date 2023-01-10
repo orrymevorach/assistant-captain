@@ -13,7 +13,7 @@ const Login = () => {
         try {
             const { user: { uid } } = await signInWithPopup(auth, provider);
             Cookies.set('uid', uid);
-            router.push('/dashboard');
+            router.push('/dashboard'); 
         } catch(err) {
             console.log(err);
         }

@@ -1,40 +1,41 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { auth } from '../../firebase/config';
 import Cookies from 'js-cookie';
+import { getUser, createUser } from '../../airtable/utils';
+import dashStyle from './Dashboard.module.css';
 
 const Dashboard = () => {
     const router = useRouter();
-    const [ userData, setUserData ] = useState();
 
     useEffect(() => {
-            onAuthStateChanged(auth, user => {
-                if (user) {
-                    const uidVerify = Cookies.get('uid');
-                    if (uidVerify !== user.uid) {
-                        Cookies.remove('uid');
-                        router.push('/')
-                    } else {
-                        setUserData(user);
-                    }
-                } 
-            })
-    }, [])
-    
-    return (
-        <div className='container'>
-            {
-                userData && 
-                <div>
-                    <h1>{ `Welcome to the dashboard` }</h1>
-                    <p>{ `Email: ${userData.email}` }</p>
-                    <p>{ `UID: ${userData.uid}` }</p>
-                </div>
+        const handleLoginOnPageLoad = onAuthStateChanged(auth, async (firebaseUser) => {
+            if (!firebaseUser) {
+                Cookies.remove('uid');
+                router.push('/');
             }
+
+            if (firebaseUser) {
+                const { uid, email } = firebaseUser;
+                const doesUserExist = await getUser(uid);
+                const hasAirtableRecord = doesUserExist.users.length !== 0;
+
+                if (!hasAirtableRecord) {
+                    await createUser(uid, email);
+                }
+            }
+        });
+
+        return () => handleLoginOnPageLoad();
+    }, []);
+
+    return (
+        <div className={dashStyle.container}>
+            <h1>Assistant Captain dashboard</h1>
         </div>
-    )
-}
+    );
+};
 
 export default Dashboard;
