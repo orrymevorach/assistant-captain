@@ -11,10 +11,8 @@ const Dashboard = () => {
     const router = useRouter();
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-            const cookieUid = Cookies.get('uid');
-
-            if (!firebaseUser || cookieUid !== firebaseUser.uid) {
+        const handleLoginOnPageLoad = onAuthStateChanged(auth, async (firebaseUser) => {
+            if (!firebaseUser) {
                 Cookies.remove('uid');
                 router.push('/');
             }
@@ -30,7 +28,7 @@ const Dashboard = () => {
             }
         });
 
-        return () => unsubscribe();
+        return () => handleLoginOnPageLoad();
     }, []);
 
     return (
