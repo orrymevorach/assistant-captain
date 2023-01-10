@@ -11,10 +11,8 @@ const Dashboard = () => {
     const router = useRouter();
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-            const cookieUid = Cookies.get('uid');
-
-            if (!firebaseUser || cookieUid !== firebaseUser.uid) {
+        const handleLoginOnPageLoad = onAuthStateChanged(auth, async (firebaseUser) => {
+            if (!firebaseUser) {
                 Cookies.remove('uid');
                 router.push('/');
             }
@@ -25,12 +23,12 @@ const Dashboard = () => {
                 const hasAirtableRecord = doesUserExist.users.length !== 0;
 
                 if (!hasAirtableRecord) {
-                    await createUser(email);
+                    await createUser(uid, email);
                 }
             }
         });
 
-        return () => unsubscribe();
+        return () => handleLoginOnPageLoad();
     }, []);
 
     return (
