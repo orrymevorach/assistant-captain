@@ -16,3 +16,11 @@ export const CREATE_USER = gql`
         }
     }
 `;
+
+export const CREATE_TEAM = gql`
+    mutation CreateTeam($teamName: String!) {
+        insert_teams(name: $teamName) {
+            id
+        }
+    }
+`;
