@@ -15,7 +15,7 @@ const Login = () => {
                 user: { uid },
             } = await signInWithPopup(auth, provider);
             Cookies.set('uid', uid);
-            router.push('/dashboard');
+            router.push('/teams');
         } catch (err) {
             console.log(err);
         }
