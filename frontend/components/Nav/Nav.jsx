@@ -7,9 +7,8 @@ import navStyle from './Nav.module.css';
 const Nav = () => {
     const router = usePathname();
     const navRoutes = [
-        { name: 'Dashboard', route: '/dashboard' },
-        { name: 'Teams', route: '/dashboard/teams' },
-        { name: 'Create A Team', route: '/dashboard/create-a-team' },
+        { name: 'Teams', route: '/teams' },
+        { name: 'Create A Team', route: '/teams/create-a-team' },
     ];
 
     return (
