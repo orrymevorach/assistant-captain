@@ -29,20 +29,13 @@ export const createUser = async (uid, email) => {
     }
 };
 
-export const createTeam = async (teamName) => {
+export const createTeam = async (teamName, id) => {
     try {
-        const { data } = await client.mutate({
+        await client.mutate({
             mutation: CREATE_TEAM,
-            variables: { teamName },
+            variables: { teamName, id },
         });
-        console.log(`[DATA]`, data);
-        // await client.refetchQueries({
-        //     query: FIND_TEAM,
-        //     variables: {
-        //         data
-        //     }
-        // })
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 };
