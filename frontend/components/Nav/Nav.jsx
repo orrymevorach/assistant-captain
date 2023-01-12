@@ -10,7 +10,7 @@ const Nav = () => {
         { name: 'Teams', route: '/teams' },
         { name: 'Create A Team', route: '/teams/create-a-team' },
     ];
-
+    console.log(`NAV`);
     return (
         <nav className={navStyle.container}>
             <ul>
