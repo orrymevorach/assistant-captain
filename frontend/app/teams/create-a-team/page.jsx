@@ -10,10 +10,10 @@ const CreateTeam = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const input = e.target.teamName.value;
+        const teamName = e.target.teamName.value;
         const getUsersId = await getUser(uid);
         const { id } = getUsersId.users[0];
-        await createTeam(input, id);
+        await createTeam(teamName, id);
         router.push('/teams');
     };
 
