@@ -9,7 +9,7 @@
 
 .item {
     list-style-type: none;
-    padding: 0.5rem;
+    padding: 1rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
