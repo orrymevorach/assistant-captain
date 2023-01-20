@@ -31,7 +31,8 @@ const Teams = () => {
                 if (!hasAirtableRecord) {
                     await createUser(uid, email);
                 } else {
-                    setTeamList(doesUserExist.users[0].teams);
+                    const teamArray = doesUserExist.users[0].teams;
+                    setTeamList(teamArray);
                 }
             }
         });
