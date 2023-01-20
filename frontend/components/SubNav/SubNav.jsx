@@ -1,18 +1,20 @@
+import { useContext } from 'react';
+import Link from 'next/link';
+import { TeamsContext } from '../../app/teams/layout';
+import subNavStyle from './SubNav.module.css';
+
 const SubNav = () => {
+    const { teamList } = useContext(TeamsContext);
     return (
-        <>
-            {teamList.length !== 0 && name === 'Teams' && (
-                <ul className={navStyle.subUl}>
-                    {teamList.map((team, idx) => {
-                        return (
-                            <li key={`${team}${idx}`}>
-                                <Link href={`/teams/${team.id}`}>{team.name}</Link>
-                            </li>
-                        );
-                    })}
-                </ul>
-            )}
-        </>
+        <ul className={subNavStyle.list}>
+            {teamList.map((team, idx) => {
+                return (
+                    <li className={subNavStyle.item} key={`${team}${idx}`}>
+                        <Link href={`/teams/${team.id}`}>{team.name}</Link>
+                    </li>
+                );
+            })}
+        </ul>
     );
 };
 
