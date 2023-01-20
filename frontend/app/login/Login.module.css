@@ -19,20 +19,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(#292929, #525151);
     width: 100%;
     padding: 1rem;
 }
 
 .headerContainer {
-    color: #f87349;
     font-size: 50px;
     text-transform: uppercase;
     text-align: center;
-    /* border-left: 50px solid #b030b0;
-    border-right: 50px solid #b030b0; */
     border-radius: 75px;
-    background-color: #3a0ca3;
 }
 
 .blurbContainer {
@@ -56,7 +51,6 @@
 
 .blurbContainer p {
     max-width: 400px;
-    color: #ae6101;
     font-weight: bolder;
 }
 
