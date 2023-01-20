@@ -1,14 +1,20 @@
 'use client';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { auth } from '../../firebase/config';
 import Cookies from 'js-cookie';
 import { getUser, createUser } from '../../airtable/utils';
 import teamsStyle from './Teams.module.css';
+import { TeamsContext } from './layout';
 
-const Dashboard = () => {
+const Teams = () => {
     const router = useRouter();
+    const { teamList, setTeamList } = useContext(TeamsContext);
+
+    const selectTeam = (teamId) => {
+        router.push(`/teams/${teamId}`);
+    };
 
     useEffect(() => {
         const handleLoginOnPageLoad = onAuthStateChanged(auth, async (firebaseUser) => {
@@ -24,6 +30,8 @@ const Dashboard = () => {
 
                 if (!hasAirtableRecord) {
                     await createUser(uid, email);
+                } else {
+                    setTeamList(doesUserExist.users[0].teams);
                 }
             }
         });
@@ -33,9 +41,26 @@ const Dashboard = () => {
 
     return (
         <div className={teamsStyle.container}>
-            <h1>Assistant Captain dashboard</h1>
+            <h1>Your Teams</h1>
+            <div className={teamsStyle.teamContainer}>
+                {teamList.length ? (
+                    teamList.map((team, idx) => {
+                        return (
+                            <div
+                                className={teamsStyle.teamCard}
+                                onClick={() => selectTeam(team.id)}
+                                key={`${team}${idx}`}
+                            >
+                                <p>{team.name}</p>
+                            </div>
+                        );
+                    })
+                ) : (
+                    <p> {`It looks like you don't have any teams :(`}</p>
+                )}
+            </div>
         </div>
     );
 };
 
-export default Dashboard;
+export default Teams;
