@@ -1,10 +1,10 @@
 const Player = ({ player }) => {
-    console.log(player);
     return (
         <div>
             <h1>Members</h1>
-            {player.map((member) => {
-                return <div>{member.email}</div>;
+            {player.map((member, idx) => {
+                let email = member.email;
+                return <div key={`${email}${idx}`}>{email}</div>;
             })}
         </div>
     );
