@@ -13,7 +13,7 @@ const CreateTeam = () => {
         const teamName = e.target.teamName.value;
         const getUsersId = await getUser(uid);
         const { id } = getUsersId.users[0];
-        await createTeam(teamName, id);
+        await createTeam(teamName, id, uid);
         router.push('/teams');
     };
 
