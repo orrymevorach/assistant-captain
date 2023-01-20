@@ -4,11 +4,13 @@ import { usePathname } from 'next/navigation';
 import { useContext } from 'react';
 import { TeamsContext } from '../../app/teams/layout';
 import LogoutButton from '../LogoutButton';
+import SubNav from '../SubNav/SubNav';
 import navStyle from './Nav.module.css';
 
 const Nav = () => {
     const router = usePathname();
     const { teamList } = useContext(TeamsContext);
+
     const navRoutes = [
         { name: 'Teams', route: '/teams' },
         { name: 'Create A Team', route: '/teams/create-a-team' },
@@ -16,29 +18,19 @@ const Nav = () => {
 
     return (
         <nav className={navStyle.container}>
-            <ul className={navStyle.mainUl}>
+            <ul className={navStyle.list}>
                 {navRoutes.map(({ name, route }, idx) => {
                     return (
-                        <li className={navStyle.mainLi} key={`${name}${idx}`}>
+                        <li className={navStyle.item} key={`${name}${idx}`}>
                             <Link
                                 href={route}
-                                className={`${navStyle.mainLink} ${
+                                className={`${navStyle.link} ${
                                     route === router ? navStyle.highlighted : undefined
                                 }`}
                             >
                                 {name}
                             </Link>
-                            {teamList.length !== 0 && name === 'Teams' && (
-                                <ul className={navStyle.subUl}>
-                                    {teamList.map((team, idx) => {
-                                        return (
-                                            <li key={`${team}${idx}`}>
-                                                <Link href={`/teams/${team.id}`}>{team.name}</Link>
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            )}
+                            {teamList.length !== 0 && name === 'Teams' && <SubNav />}
                         </li>
                     );
                 })}
