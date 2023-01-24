@@ -6,17 +6,19 @@ import Cookies from 'js-cookie';
 import navStyle from './Nav/Nav.module.css';
 
 const Logout = () => {
-    const router = useRouter();
+  const router = useRouter();
 
-    const handleLogout = async () => {
-        await signOut(auth);
-        Cookies.remove('uid');
-        router.push('/');
-    }
+  const handleLogout = async () => {
+    await signOut(auth);
+    Cookies.remove('uid');
+    router.push('/');
+  };
 
-    return <button className={navStyle.logout} onClick={() => handleLogout()}>
-                Logout
-            </button>
-}
+  return (
+    <button className={navStyle.logout} onClick={() => handleLogout()}>
+      Logout
+    </button>
+  );
+};
 
 export default Logout;
