@@ -1,6 +1,6 @@
-import { findTeam } from '../../../airtable/utils';
-import Admin from '../../../components/Admin/Admin';
-import Player from '../../../components/Player/Player';
+import { findTeam } from '@airtable/utils';
+import Admin from '@components/Admin/Admin';
+import Player from '@components/Player/Player';
 import teamStyle from './Team.module.css';
 
 const TeamPage = async ({ params }) => {
