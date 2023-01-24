@@ -1,0 +1,21 @@
+.list {
+  padding: 0;
+  margin: 0.5rem 0 0.5rem 0;
+  max-width: 125px;
+  font-size: 12px;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.item {
+  display: flex;
+  list-style-type: none;
+  /* padding: 0.5rem; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item:hover {
+  color: rgb(171, 171, 171);
+}
