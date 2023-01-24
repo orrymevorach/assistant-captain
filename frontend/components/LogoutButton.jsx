@@ -3,7 +3,7 @@ import { auth } from '../firebase/config';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
-import navStyle from './Nav/Nav.module.css';
+import navStyle from './Nav/ParentNav/ParentNav.module.css';
 
 const Logout = () => {
   const router = useRouter();
