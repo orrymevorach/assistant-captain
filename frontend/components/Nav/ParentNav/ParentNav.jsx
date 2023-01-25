@@ -17,9 +17,9 @@ const ParentNav = () => {
   return (
     <nav className={navStyle.container}>
       <ul className={navStyle.list}>
-        {navRoutes.map(({ name, route }, idx) => {
+        {navRoutes.map(({ name, route }) => {
           return (
-            <li className={navStyle.item} key={`${name}${idx}`}>
+            <li className={navStyle.item} key={name}>
               <NavLink routes={{ name, route }} />
               {name === 'Teams' && teamList.length !== 0 && <SubNav />}
             </li>

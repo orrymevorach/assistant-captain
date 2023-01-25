@@ -8,12 +8,12 @@ const SubNav = () => {
 
   return (
     <ul className={subNavStyle.list}>
-      {teamList.map((team, idx) => {
+      {teamList.map((team) => {
         const route = `/teams/${team.id}`;
         const name = team.name;
 
         return (
-          <li className={subNavStyle.item} key={`${team}${idx}`}>
+          <li className={subNavStyle.item} key={team.id}>
             <NavLink routes={{ route, name }} />
           </li>
         );
