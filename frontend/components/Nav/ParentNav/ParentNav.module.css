@@ -38,13 +38,15 @@
 }
 
 .highlighted {
+  width: 100%;
+  padding: 0.5rem;
   background: linear-gradient(to left, rgb(210, 210, 210) 50%, rgb(255, 255, 255) 50%) right;
   background-size: 200%;
   border-radius: 5px;
   transition: 0.3s ease-out;
   color: rgb(66, 66, 66);
   display: flex;
-  animation: 0.1s slide-right 0.5s forwards;
+  animation: 0.3s slide-right 0.5s forwards;
   transform: translateX(20%);
 }
 
