@@ -2,8 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@app/*": ["app/*"],
       "@components/*": ["components/*"],
-      "@airtable/*": ["airtable/*"]
+      "@airtable/*": ["airtable/*"],
+      "@firebase/*": ["firebase/*"]
     }
   }
 }

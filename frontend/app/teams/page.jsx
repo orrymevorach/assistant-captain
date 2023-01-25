@@ -2,9 +2,9 @@
 import { useContext, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
-import { auth } from '../../firebase/config';
+import { auth } from '@firebase/config';
 import Cookies from 'js-cookie';
-import { getUser, createUser } from '../../airtable/utils';
+import { getUser, createUser } from '@airtable/utils';
 import teamsStyle from './Teams.module.css';
 import { TeamsContext } from './layout';
 

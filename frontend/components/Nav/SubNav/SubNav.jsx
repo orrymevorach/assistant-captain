@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { TeamsContext } from '../../../app/teams/layout';
+import { TeamsContext } from '@app/teams/layout';
 import subNavStyle from './SubNav.module.css';
 import NavLink from '../NavLink';
 

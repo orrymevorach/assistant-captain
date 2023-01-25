@@ -1,6 +1,6 @@
 'use client';
 import { useContext } from 'react';
-import { TeamsContext } from '../../../app/teams/layout';
+import { TeamsContext } from '@app/teams/layout';
 import LogoutButton from '../LogoutButton';
 import NavLink from '../NavLink';
 import SubNav from '../SubNav/SubNav';

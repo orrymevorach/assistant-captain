@@ -1,6 +1,6 @@
 'use client';
 import { useState, createContext } from 'react';
-import Nav from '../../components/Nav/ParentNav/ParentNav';
+import Nav from '@components/Nav/ParentNav/ParentNav';
 import teamsStyle from './Teams.module.css';
 
 export const TeamsContext = createContext(null);

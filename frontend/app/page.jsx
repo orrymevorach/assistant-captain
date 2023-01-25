@@ -1,4 +1,4 @@
-import { initFirebaseAuth } from '../firebase/config';
+import { initFirebaseAuth } from '@firebase/config';
 import Login from './login/page';
 import styles from './App.module.css';
 

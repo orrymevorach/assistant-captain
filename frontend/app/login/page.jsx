@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth } from '../../firebase/config';
+import { auth } from '@firebase/config';
 import loginStyles from './Login.module.css';
 import Google from '@components/Logo/Google';
 

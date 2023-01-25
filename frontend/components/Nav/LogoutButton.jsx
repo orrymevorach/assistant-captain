@@ -1,5 +1,5 @@
 'use client';
-import { auth } from '../../firebase/config';
+import { auth } from '@firebase/config';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
