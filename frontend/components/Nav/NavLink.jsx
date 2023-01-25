@@ -8,10 +8,7 @@ const NavLink = ({ routes }) => {
   const { name, route } = routes;
 
   return (
-    <Link
-      href={route}
-      className={`${navStyle.link} ${route === router ? navStyle.highlighted : undefined}`}
-    >
+    <Link href={route} className={`${route === router ? navStyle.highlighted : navStyle.link}`}>
       {name}
     </Link>
   );
