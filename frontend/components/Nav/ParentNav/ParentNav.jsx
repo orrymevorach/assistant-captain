@@ -1,7 +1,7 @@
 'use client';
 import { useContext } from 'react';
 import { TeamsContext } from '../../../app/teams/layout';
-import LogoutButton from '../../LogoutButton';
+import LogoutButton from '../LogoutButton';
 import NavLink from '../NavLink';
 import SubNav from '../SubNav/SubNav';
 import navStyle from './ParentNav.module.css';
@@ -25,7 +25,7 @@ const ParentNav = () => {
             </li>
           );
         })}
-        <li className={navStyle.mainLi}>
+        <li className={navStyle.list}>
           <LogoutButton />
         </li>
       </ul>
