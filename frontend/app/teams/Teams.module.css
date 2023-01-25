@@ -1,7 +1,8 @@
 .grid {
   display: grid;
-  grid-template-columns: minmax(150px, 200px) 3fr;
+  grid-template-columns: minmax(175px, 250px) 3fr;
   grid-template-rows: 100vh;
+  gap: 0.1rem;
 }
 
 .container {
