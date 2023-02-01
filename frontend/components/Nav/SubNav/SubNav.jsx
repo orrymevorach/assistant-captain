@@ -1,14 +1,14 @@
-import { useContext } from 'react';
-import { TeamsContext } from '@app/teams/layout';
 import subNavStyle from './SubNav.module.css';
 import NavLink from '../NavLink';
+import { useUser } from '@user-context';
 
 const SubNav = () => {
-  const { teamList } = useContext(TeamsContext);
+  const { user } = useUser();
+  const { teams } = user[0];
 
   return (
     <ul className={subNavStyle.list}>
-      {teamList.map((team) => {
+      {teams.map((team) => {
         const route = `/teams/${team.id}`;
         const name = team.name;
 

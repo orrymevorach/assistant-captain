@@ -5,7 +5,8 @@
       "@app/*": ["app/*"],
       "@components/*": ["components/*"],
       "@airtable/*": ["airtable/*"],
-      "@firebase/*": ["firebase/*"]
+      "@firebase/*": ["firebase/*"],
+      "@user-context": ["user-context"]
     }
   }
 }

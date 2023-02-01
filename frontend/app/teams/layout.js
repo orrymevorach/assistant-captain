@@ -1,18 +1,15 @@
 'use client';
-import { useState, createContext } from 'react';
 import Nav from '@components/Nav/ParentNav/ParentNav';
 import teamsStyle from './Teams.module.css';
-
-export const TeamsContext = createContext(null);
+import { UserContextProvider } from '@user-context';
 
 export default function TeamLayout({ children }) {
-  const [teamList, setTeamList] = useState([]);
   return (
-    <div className={teamsStyle.grid}>
-      <TeamsContext.Provider value={{ teamList, setTeamList }}>
-        <Nav teams={teamList} />
+    <UserContextProvider>
+      <div className={teamsStyle.grid}>
+        <Nav />
         {children}
-      </TeamsContext.Provider>
-    </div>
+      </div>
+    </UserContextProvider>
   );
 }

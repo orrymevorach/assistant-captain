@@ -14,7 +14,7 @@ export const getUser = async (uid) => {
 
 export const createUser = async (uid, email) => {
   try {
-    await client.mutate({
+    const { data } = await client.mutate({
       mutation: CREATE_USER,
       variables: { email, uid },
       refetchQueries: [
@@ -25,6 +25,7 @@ export const createUser = async (uid, email) => {
       ],
       awaitRefetchQueries: true,
     });
+    return data;
   } catch (error) {
     console.log(error);
   }
@@ -32,7 +33,7 @@ export const createUser = async (uid, email) => {
 
 export const createTeam = async (teamName, id, uid) => {
   try {
-    await client.mutate({
+    const { data } = await client.mutate({
       mutation: CREATE_TEAM,
       variables: { teamName, id },
       refetchQueries: [
@@ -43,6 +44,7 @@ export const createTeam = async (teamName, id, uid) => {
       ],
       awaitRefetchQueries: true,
     });
+    return data;
   } catch (error) {
     console.error(error);
   }

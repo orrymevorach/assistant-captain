@@ -29,6 +29,7 @@ export const CREATE_TEAM = gql`
   mutation CreateTeam($teamName: String!, $id: [String]) {
     insert_teams(name: $teamName, players: $id, admins: $id) {
       id
+      name
     }
   }
 `;
