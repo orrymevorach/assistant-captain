@@ -4,11 +4,14 @@ import createStyle from './CreateTeam.module.css';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import { useUser } from '@user-context';
+import Loader from '@components/Loader/Loader';
 
 const CreateTeam = () => {
   const { user, setUser } = useUser();
   const uid = Cookies.get('uid');
   const router = useRouter();
+
+  if (!user[0]) return <Loader />;
 
   const handleSubmit = async e => {
     e.preventDefault();
