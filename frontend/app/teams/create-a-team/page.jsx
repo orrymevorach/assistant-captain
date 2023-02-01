@@ -13,8 +13,7 @@ const CreateTeam = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const teamName = e.target.teamName.value;
-    const id = user[0].id;
-    const { insert_teams } = await createTeam(teamName, id, uid);
+    const { insert_teams } = await createTeam(teamName, user[0].id, uid);
     const userCopy = JSON.parse(JSON.stringify(user));
     userCopy[0].teams.push(insert_teams[0]);
     setUser(userCopy);
