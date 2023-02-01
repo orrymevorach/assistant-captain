@@ -1,15 +1,15 @@
-import { initFirebaseAuth } from '../firebase/config';
+import { initFirebaseAuth } from '@firebase/config';
 import Login from './login/page';
 import styles from './App.module.css';
 
 const App = () => {
-    initFirebaseAuth();
+  initFirebaseAuth();
 
-    return (
-        <div className={styles.container}>
-            <Login />
-        </div>
-    )
-}
+  return (
+    <div className={styles.container}>
+      <Login />
+    </div>
+  );
+};
 
 export default App;

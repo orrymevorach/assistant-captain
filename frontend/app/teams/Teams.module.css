@@ -1,0 +1,44 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(175px, 250px) 3fr;
+  grid-template-rows: 100vh;
+  gap: 0.1rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.container h1 {
+  font-size: 30px;
+  margin-left: 1rem;
+}
+
+.teamContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-template-rows: max-content;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.teamCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 175px;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.teamCard:hover {
+  background-color: rgb(250, 250, 250);
+}
