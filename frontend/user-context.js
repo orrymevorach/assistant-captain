@@ -1,7 +1,8 @@
 'use client';
-import { useContext, createContext } from 'react';
+import useAuth from 'hooks/useAuth';
+import { useContext, createContext, useState } from 'react';
 
-export const UserContext = createContext(null);
+const UserContext = createContext(null);
 
 const useUser = () => {
   const context = useContext(UserContext);
@@ -12,4 +13,11 @@ const useUser = () => {
   return context;
 };
 
-export { useUser };
+const UserContextProvider = ({ children }) => {
+  const [user, setUser] = useState([]);
+  useAuth({ setUser });
+  const value = { user, setUser };
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+};
+
+export { useUser, UserContextProvider, UserContext };
