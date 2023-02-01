@@ -26,13 +26,13 @@ export default function TeamLayout({ children }) {
         const { uid, email } = firebaseUser;
         const doesUserExist = await getUser(uid);
         const hasAirtableRecord = doesUserExist.users.length !== 0;
-        let user = doesUserExist.users;
+        let userData = doesUserExist.users;
 
         if (!hasAirtableRecord) {
           const createdUser = await createUser(uid, email);
-          user = createdUser.users;
+          userData = createdUser.users;
         }
-        setUser(user);
+        setUser(userData);
       }
     });
 
