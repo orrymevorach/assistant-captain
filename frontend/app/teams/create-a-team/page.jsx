@@ -10,7 +10,7 @@ const CreateTeam = () => {
   const uid = Cookies.get('uid');
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const teamName = e.target.teamName.value;
     const { insert_teams } = await createTeam(teamName, user[0].id, uid);
@@ -23,10 +23,15 @@ const CreateTeam = () => {
   return (
     <div className={createStyle.container}>
       <h2>Create a team!</h2>
-      <form className={createStyle.form} onSubmit={(e) => handleSubmit(e)}>
+      <form className={createStyle.form} onSubmit={e => handleSubmit(e)}>
         <label className={createStyle.teamName}>
           Name:
-          <input className={createStyle.input} type='text' name='teamName' required />
+          <input
+            className={createStyle.input}
+            type='text'
+            name='teamName'
+            required
+          />
         </label>
         <button className={createStyle.button} type='submit'>
           Submit
