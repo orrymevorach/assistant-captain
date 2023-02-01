@@ -2,13 +2,16 @@
 import { useRouter } from 'next/navigation';
 import teamsStyle from './Teams.module.css';
 import { useUser } from '@user-context';
+import Loader from '@components/Loader/Loader';
 
 const Teams = () => {
   const router = useRouter();
   const { user } = useUser();
-  const { teams } = user[0];
+  const teams = user.length ? user[0].teams : [];
 
-  const selectTeam = (teamId) => {
+  if (!user.length) return <Loader />;
+
+  const selectTeam = teamId => {
     router.push(`/teams/${teamId}`);
   };
 
