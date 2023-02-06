@@ -2,10 +2,12 @@ const Player = ({ player }) => {
   return (
     <div>
       <h1>Members</h1>
-      {player.map((member) => {
-        const email = member.email;
-        return <div key={`${email}`}>{email}</div>;
-      })}
+      <div>
+        {player.map(member => {
+          const phoneNumber = member.phoneNumber;
+          return <div key={phoneNumber}>{phoneNumber}</div>;
+        })}
+      </div>
     </div>
   );
 };
