@@ -37,10 +37,10 @@ const AddPlayer = ({ team, setTeamData }) => {
       return setValidationError('Numbers Only');
     }
 
-    submitPlayer(phoneNumber);
+    submitPlayer(e, phoneNumber);
   };
 
-  const submitPlayer = async phoneNumber => {
+  const submitPlayer = async (e, phoneNumber) => {
     let newPlayerRecord;
     // Phone number needs to be formatted (xxx) xxx-xxxx to find in Airtable
     const formattedPhoneNumber = formatPhoneNumber(phoneNumber);
@@ -62,6 +62,7 @@ const AddPlayer = ({ team, setTeamData }) => {
       newPlayerRecord = numberExists.users[0];
     }
     updateTeamDataState(newPlayerRecord);
+    e.target.phone.value = '';
   };
 
   const updateTeamDataState = newPlayerRecord => {
