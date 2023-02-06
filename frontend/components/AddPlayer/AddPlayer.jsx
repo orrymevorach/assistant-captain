@@ -54,6 +54,7 @@ const AddPlayer = ({ team, setTeamData }) => {
       newPlayerRecord = insert_users[0];
     } else {
       // Array containing string ID's needed for all users connected to this team
+      // It is used to update airtable with the existing users
       const playerIdArray = createPlayerIdArray(teamData[0].players);
       // New users ID added to players array of ID's
       const addNewPlayer = [...playerIdArray, numberExists.users[0].id];
