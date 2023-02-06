@@ -8,7 +8,7 @@ const SubNav = () => {
 
   return (
     <ul className={subNavStyle.list}>
-      {teams.map((team) => {
+      {teams.map(team => {
         const route = `/teams/${team.id}`;
         const name = team.name;
 
