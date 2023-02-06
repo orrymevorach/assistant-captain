@@ -1,4 +1,9 @@
-.personContainer {
-    display: flex;
-    gap: 2rem;
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.members {
+  display: flex;
+  gap: 2rem;
 }

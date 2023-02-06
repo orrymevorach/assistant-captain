@@ -17,7 +17,9 @@ const ParentNav = () => {
       <ul className={navStyle.list}>
         {navRoutes.map(({ name, route }) => {
           const hasSubNav =
-            name === 'Teams' && user.length && user[0].teams ? true : false;
+            name === 'Teams' && user.length && user[0].teams.length
+              ? true
+              : false;
           return (
             <li className={navStyle.item} key={name}>
               <NavLink routes={{ name, route }} />

@@ -20,12 +20,12 @@ const Teams = () => {
       <h1>Your Teams</h1>
       <div className={teamsStyle.teamContainer}>
         {teams.length ? (
-          teams.map((team, idx) => {
+          teams.map(team => {
             return (
               <div
                 className={teamsStyle.teamCard}
                 onClick={() => selectTeam(team.id)}
-                key={`${team}${idx}`}
+                key={`${team.id}`}
               >
                 <p>{team.name}</p>
               </div>
